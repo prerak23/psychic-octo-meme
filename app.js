@@ -6,15 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var dbs;
 var MongoClient=require('mongodb').MongoClient;
-MongoClient.connect('mongodb://localhost:27017',function(err,client){
+MongoClient.connect('mongodb://rachna1711:rachna1711@ds153392.mlab.com:53392/tbc',function(err,client){
   if(err)throw err;
-  var db=client.db('Login');
+  var db=client.db('tbc');
   db.collection('User').find({}).toArray(function(err,db){
     console.log(db);
   })
 })
 var mongoose=require('mongoose');
-var url="mongodb://localhost:27017/Login";
+var url="mongodb://rachna1711:rachna1711@ds153392.mlab.com:53392/tbc";
 mongoose.connect(url,function(err,suc){
   if(err)console.log("Error");
   console.log("Succesfully Connected");
