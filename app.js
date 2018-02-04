@@ -24,6 +24,9 @@ mongoose.connect(url,function(err,suc){
 var index = require('./routes/index');
 var users = require('./routes/register');
 var login=require('./routes/login');
+var registerprovider=require('./routes/registerprovider');
+var nearbyprovider=require('./routes/nearbyprovider');
+var placeorder=require('./routes/placeorder');
 var host=3000;
 var hostname="localhost"
 var app = express();
@@ -43,7 +46,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/register', users);
 app.use('/login', login);
-
+app.use('/registerprovider',registerprovider);
+app.use('/nearbyprovider', nearbyprovider);
+app.use('/placeorder', placeorder);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
